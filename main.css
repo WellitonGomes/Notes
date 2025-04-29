@@ -1,0 +1,290 @@
+/* Import Google Font - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.card-notes {
+    background: #626CD6;
+    width: 60rem;
+}
+
+.wrapper {
+    margin: 4em;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, 16rem);
+}
+
+.wrapper li {
+    height: 15rem;
+    list-style: none;
+    border-radius: 5px;
+    padding: 0.5rem;
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.add-box,
+.icon,
+.bottom-content,
+.popup,
+header,
+.settings .menu li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-box {
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.add-box .icon {
+    height: 3rem;
+    width: 3rem;
+    color: #626CD6;
+    font-size: 40px;
+    border-radius: 50%;
+    justify-content: center;
+    border: 0.2rem dashed #626CD6;
+}
+
+.add-box p {
+    color: #626CD6;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.note {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.note .details {
+    max-height: 11rem;
+    overflow-y: auto;
+}
+
+.note .details::-webkit-scrollbar,
+.popup textarea::-webkit-scrollbar {
+    width: 0;
+}
+
+.note .details:hover::-webkit-scrollbar,
+.popup textarea:hover::-webkit-scrollbar {
+    width: 1rem;
+}
+
+.note .details:hover::-webkit-scrollbar-track,
+.popup textarea:hover::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 25px;
+}
+
+.note .details:hover::-webkit-scrollbar-thumb,
+.popup textarea:hover::-webkit-scrollbar-thumb {
+    background: #e6e6e6;
+    border-radius: 25px;
+}
+
+.note p {
+    font-size: 22px;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    display: block;
+}
+
+.note h2 {
+    color: #575757;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+.note .bottom-content {
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+.bottom-content span {
+    color: #6D6D6D;
+    font-size: 14px;
+}
+
+.bottom-content .settings {
+    position: relative;
+}
+
+.bottom-content .settings i {
+    color: #6D6D6D;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.settings .menu {
+    z-index: 1;
+    bottom: 0;
+    right: -1px;
+    padding: 1px 0;
+    background: #fff;
+    position: absolute;
+    border-radius: 4px;
+    transform: scale(0);
+    transform-origin: bottom right;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+.settings.show .menu {
+    transform: scale(1);
+}
+
+.settings .menu li {
+    height: 1rem;
+    font-size: 16px;
+    margin-bottom: 0.1rem;
+    padding: 1rem;
+    cursor: pointer;
+    box-shadow: none;
+    border-radius: 0;
+    justify-content: flex-start;
+}
+
+.menu li:last-child {
+    margin-bottom: 0;
+}
+
+.menu li:hover {
+    background: #f5f5f5;
+}
+
+.menu li i {
+    padding-right: 1rem;
+}
+
+.popup-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.popup-box .popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 3;
+    width: 100%;
+    max-width: 400px;
+    justify-content: center;
+    transform: translate(-50%, -50%) scale(0.95);
+}
+
+.popup-box,
+.popup {
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.25s ease;
+}
+
+.popup-box.show,
+.popup-box.show .popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.popup-box.show .popup {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.popup .content {
+    display: flex;
+    flex-direction: column;
+    /* faz os filhos ficarem um embaixo do outro */
+    justify-content: center;
+    padding: 1rem;
+    border-radius: 5px;
+    background: #fff;
+    width: calc(100% - 15px);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+    /* espaçamento entre os elementos, opcional */
+}
+
+
+.content header {
+    border-bottom: 1px solid #ccc;
+}
+
+.content header p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.content header i {
+    color: #8b8989;
+    cursor: pointer;
+    font-size: 23px;
+}
+
+
+.content form .row {
+    margin-bottom: 20px;
+}
+
+form .row label {
+    font-size: 18px;
+    display: block;
+    margin-bottom: 6px;
+}
+
+form :where(input, textarea) {
+    height: 2rem;
+    width: 21rem;
+    outline: none;
+    font-size: 17px;
+    padding: 1rem;
+    border-radius: 4px;
+    border: 1px solid #999;
+}
+
+form :where(input, textarea):focus {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+}
+
+form .row textarea {
+    height: 1rem;
+    resize: none;
+    padding: 1rem;
+}
+
+form button {
+    width: 100%;
+    height: 2rem;
+    color: #fff;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    border-radius: 4px;
+    background: #626CD6;
+}
